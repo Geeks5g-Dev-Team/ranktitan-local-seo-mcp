@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2023"],
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "declaration": false,
+
+    /* Everything on. A server that strangers call from the internet is the
+       wrong place to find out a value was undefined at runtime. */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    /* Left off deliberately. The MCP SDK's own option types are not written
+       for it — it rejects `new StreamableHTTPServerTransport({...})` and
+       `server.connect(transport)` over optional `onclose`/`sessionIdGenerator`
+       properties. Turning it on would mean casting at every SDK boundary, which
+       buys less safety than it costs. Revisit if the SDK adopts it. */
+    "exactOptionalPropertyTypes": false,
+    "forceConsistentCasingInFileNames": true,
+
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

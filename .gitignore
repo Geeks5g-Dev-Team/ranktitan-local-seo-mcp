@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+*.tsbuildinfo
+
+# Secrets. Only .env.example is committed.
+.env
+.env.*
+!.env.example
+
+# Logs and local scratch
+*.log
+npm-debug.log*
+.DS_Store
+coverage
+.vitest

@@ -1,0 +1,44 @@
+# A minimal way to run this server. Adjust the routing to your own setup.
+#
+# The container needs nothing but its environment: no volumes, no database, no
+# state on disk. That is what lets it run read-only.
+
+services:
+  mcp-ranktitan:
+    build: .
+    container_name: mcp-ranktitan
+    restart: unless-stopped
+    init: true
+
+    env_file:
+      - .env
+
+    ports:
+      - "3070:3070"
+
+    # It proxies to an API and renders Markdown. It holds no database and does
+    # no heavy work, so a cap costs nothing and means a traffic spike cannot
+    # starve the host.
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+        reservations:
+          memory: 128M
+
+    # This is a service strangers reach directly, so it gets nothing it does
+    # not need: no writable filesystem, no new privileges, no capabilities.
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
