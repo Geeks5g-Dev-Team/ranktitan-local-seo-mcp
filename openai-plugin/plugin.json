@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ranktitan-local-seo",
+  "version": "1.0.0",
+  "description": "Local SEO rank tracking and ranking heatmaps for Google Business Profiles.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Local SEO Rank Tracker & Heatmaps",
+        "shortDescription": "See where a business actually ranks on Google Maps across its city — and who is taking the space it is missing.",
+        "longDescription": "Rank Titan tracks how local businesses rank in Google's map pack. This plugin brings that into the chat.\n\nTwo tools need no account at all: audit any business's Google profile and see what it is missing, or find out who really ranks for a local search, with ratings and review counts. Useful for a prospect, a competitor, or your own listing before you sign up for anything.\n\nWith a Rank Titan account you also get your own data: the locations you manage, the map-pack positions Rank Titan last measured for each tracked keyword and when, a full profile audit, the reviews still waiting for a reply, and the ability to publish a reply to Google from the conversation.\n\nAnd the one local SEO is really about: a live ranking grid. Pick a business and a search, and it measures where you rank from 19 points spread across the area — which is how you discover you are first at your own door and invisible three miles away. It reports your average position, how much of the area holds a top-3 spot, and the competitors holding the rest.\n\nRankings are stored measurements, not a live scan, and every answer says when they were last taken. A grid is run on request and is the one metered action: one free run per account.\n\nSign-in is through the same Google account you use for Rank Titan, so there is no key to paste and no password for this plugin to see.",
+        "developerName": "RankTitan.ai",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://ranktitan.ai",
+        "privacyPolicyURL": "https://ranktitan.ai/privacy",
+        "termsOfServiceURL": "https://ranktitan.ai/terms",
+        "supportURL": "mailto:support@ranktitan.ai",
+        "defaultPrompt": [
+          "Audit the Google profile of Blue Bottle Coffee, Mint Plaza San Francisco",
+          "Who ranks for emergency plumber in Austin?",
+          "List my businesses",
+          "How are the keywords doing for my shop?",
+          "Run a heatmap for my shop for \"emergency plumber\""
+        ],
+        "brandColor": "#101722",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
+}
